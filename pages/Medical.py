@@ -280,7 +280,6 @@ with tab2:
             "N_Days": n_days
         }])
 
-        new_patient_transformed = binary_transform(new_patient)
 
         # Prediction
         pred_enc = pipeline.predict(new_patient_transformed)
@@ -358,6 +357,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
