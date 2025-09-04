@@ -2,6 +2,7 @@
 # Gihub request from drive
 import requests
 import gdown
+import zipfile
 # =========================================
 # Library 
 # =========================================
@@ -126,13 +127,25 @@ le = liver_model["label_encoder"]
 ###########################################
 ###########################################
 # Model 3
-FILE_ID = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
-url = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
-output_file = "mri_model.pth"
-gdown.download(url, output_file, quiet=False)
 
-    
-brain_model  = torch.load(output_file, map_location=device, weights_only=False)
+FILE_ID = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
+url = f"https://drive.google.com/uc?id={FILE_ID}"
+zip_path = "mri_model.zip"   
+def load_brain_model():
+    gdown.download(url, zip_path, quiet=False)
+    with zipfile.ZipFile(zip_path, "r") as zip_ref:
+        zip_ref.extractall(".")
+    files = os.listdir(".")
+
+    real_model_path = None
+    for f in files:
+        if f.endswith(".pth"):
+            real_model_path = f
+            break
+
+    brain_model = torch.load(real_model_path, map_location=device, weights_only=False)
+
+    return model
 
 brain_model.eval()
 ###########################################
@@ -337,6 +350,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
