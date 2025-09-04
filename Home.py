@@ -72,7 +72,7 @@ set_bg_from_url(image_path)
 st.markdown("<h1 style='text-align: center; color: white; font-size: 70px;'>Medical AI Diagnosis HUB</h1>", unsafe_allow_html=True)
 # st.markdown("<h3 style='text-align: center; color: white; font-size: 30px;'>Stroke Risk Prediction <br> Liver Cirrhosis Stage Classification <br> Brain Tumor Classification</h3>", unsafe_allow_html=True)
 
-st.markdown("<div class='main-button';  style='text-align: center;' >", unsafe_allow_html=True)
+st.markdown("<div class='main-button';  style='text-align: right;' >", unsafe_allow_html=True)
 if st.button("Start Diagnosis 🧬"):
     st.switch_page("pages\Medical.py")
 st.markdown("</div>", unsafe_allow_html=True)
