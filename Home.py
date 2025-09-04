@@ -51,7 +51,7 @@ def set_bg_from_url(image_url):
             box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
             cursor: pointer;
             transition: 0.3s;
-            margin-left: 20%;
+            margin-left: 60%;
 
         }}
         .stButton > button:hover {{
