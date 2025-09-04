@@ -132,7 +132,7 @@ file_id = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
 url = f"https://drive.google.com/uc?id={file_id}"
 output = "mri_model.pth"
 gdown.download(url, output, quiet=False, fuzzy=True) 
-brain_model = torch.load(output, map_location=device, weights_only=False) 
+brain_model = torch.load("mri_model.pth", map_location=device, weights_only=False)
 brain_model.eval()
 
 ###########################################
@@ -337,6 +337,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
