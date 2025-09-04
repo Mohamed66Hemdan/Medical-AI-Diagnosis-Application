@@ -128,13 +128,21 @@ le = liver_model["label_encoder"]
 ###########################################
 ###########################################
 # Model 3
-url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
+
+# معرف الملف من الرابط
+file_id = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
+url = f"https://drive.google.com/uc?id={file_id}"  # رابط مباشر للتحميل
 output = "mri_model.pth"
-gdown.download(url, output, quiet=False) 
-# Verify that the file exists
+
+# تحميل الملف
+gdown.download(url, output, quiet=False)
+
+# التأكد من وجود الملف
 if not os.path.exists(output):
-    raise FileNotFoundError(f"Download failed: {output} not found.")
-brain_model = torch.load("mri_model.pth", map_location=device, weights_only=False)
+    raise FileNotFoundError(f"تحميل الملف فشل: {output} غير موجود.")
+
+# تحميل الموديل
+brain_model = torch.load(output, map_location=device, weights_only=False)
 brain_model.eval()
 
 ###########################################
@@ -339,6 +347,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
