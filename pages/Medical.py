@@ -134,15 +134,16 @@ url = "https://github.com/Mohamed66Hemdan/Medical-AI-Diagnosis-Application/relea
 output = "mri_model.pth"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# تحميل الملف من GitHub Release
-response = requests.get(url)
-with open(output, "wb") as f:
-    f.write(response.content)
+# تحميل الملف بأمان
+with requests.get(url, stream=True) as r:
+    r.raise_for_status()
+    with open(output, "wb") as f:
+        for chunk in r.iter_content(chunk_size=8192):
+            f.write(chunk)
 
 # التأكد من وجود الملف
 if not os.path.exists(output):
     raise FileNotFoundError(f"تحميل الملف فشل: {output} غير موجود.")
-
 # تحميل الموديل
 brain_model = torch.load(output, map_location=device)
 brain_model.eval()
@@ -349,6 +350,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
