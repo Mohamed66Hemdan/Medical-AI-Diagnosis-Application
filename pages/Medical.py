@@ -130,8 +130,7 @@ le = liver_model["label_encoder"]
 # Model 3
 
 # معرف الملف من الرابط
-file_id = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
-url = f"https://drive.google.com/uc?id={file_id}"  # رابط مباشر للتحميل
+url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
 output = "mri_model.pth"
 
 # تحميل الملف
@@ -347,6 +346,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
