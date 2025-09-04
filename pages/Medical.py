@@ -111,16 +111,16 @@ stroke_model = joblib.load("strok_svm.pkl")
 ###########################################
 ###########################################
 # Model 2
-# def binary_transform(X):
-#     return X.replace({
-#         'Y': 1, 
-#         'N': 0, 
-#         'F': 1, 
-#         'M': 0, 
-#         'Placebo': 0,
-#         'D-penicillamine': 1
-#     })
-# binary_transformer = FunctionTransformer(binary_transform)
+def binary_transform(X):
+    return X.replace({
+        'Y': 1, 
+        'N': 0, 
+        'F': 1, 
+        'M': 0, 
+        'Placebo': 0,
+        'D-penicillamine': 1
+    })
+binary_transformer = FunctionTransformer(binary_transform)
 def transform_input(df):
     return df.replace({
         'Y': 1, 'N': 0,
@@ -280,7 +280,6 @@ with tab2:
             "N_Days": n_days
         }])
 
-        new_patient_transformed = transform_input(new_patient)
         # Prediction
         pred_enc = pipeline.predict(new_patient)
         pred_label = le.inverse_transform(pred_enc)
@@ -357,6 +356,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
