@@ -138,7 +138,7 @@ if not os.path.exists(output):
     gdown.download(url, output, quiet=False, fuzzy=True)
 
 # 3️⃣ التأكد من الحجم (ملف فعلي وليس HTML)
-size = os.path.getsize(output) if os.path.exists(output) else 0
+size = os.path.getsize(output , "bytes") if os.path.exists(output) else 0
 if size < 1e6:  # أقل من 1MB غالبًا HTML بدل الموديل
     raise FileNotFoundError(
         f"❌ Model file not downloaded correctly! Current size: {size} bytes"
@@ -354,6 +354,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
