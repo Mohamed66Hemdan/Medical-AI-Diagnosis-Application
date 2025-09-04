@@ -1,22 +1,10 @@
 streamlit==1.37.1
-torch
-torchvision==0.23.0
-scikit-learn
+torch==2.2.0          # أو أي نسخة حديثة متوافقة
+torchvision==0.18.1   # متوافقة مع torch 2.2
+scikit-learn==1.2.2   # نفس نسخة التدريب
 pandas==2.2.2
 joblib
 Pillow==10.4.0
 imbalanced-learn==0.12.3
 xgboost==2.1.1
 gdown==4.7.1
-
-
-
-
-
-
-
-
-
-
-
-
