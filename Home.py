@@ -64,7 +64,7 @@ def set_bg_from_url(image_url):
         """,
         unsafe_allow_html=True
     )
-image_path = r"images\img4.png"
+image_path = "images/img4.png"
 set_bg_from_url(image_path)  
 
 # st.title("Medical AI HUB")
