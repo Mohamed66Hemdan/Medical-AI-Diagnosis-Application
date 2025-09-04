@@ -5,6 +5,8 @@ A comprehensive AI-powered web application for medical diagnosis, built with Str
   - Brain Tumor Detection (CT & MRI images)
     
 The project integrates data preprocessing, EDA, model training with hyperparameter tuning, cross-validation, and deployment, making it a complete AI solution for healthcare analytics.
+![Brain Tumor Sample](images/p1.png)
+![Brain Tumor Sample](images/p2.png)
 
 # Features
 ## 1. Stroke Risk Prediction
