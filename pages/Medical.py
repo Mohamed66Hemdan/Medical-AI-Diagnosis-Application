@@ -3,6 +3,7 @@
 import requests
 import gdown
 import zipfile
+import os
 # =========================================
 # Library 
 # =========================================
@@ -132,14 +133,11 @@ model_path = "mri_model.pth"
 device = torch.device("cpu")
 
 def load_brain_model():
-    # لو الملف مش موجود نزّله
     if not os.path.exists(model_path):
         gdown.download(url, model_path, quiet=False)
 
-    # تحميل الموديل
     return torch.load(model_path, map_location=device, weights_only=False)
 
-# استدعاء
 brain_model = load_brain_model()
 brain_model.eval()
 
@@ -345,6 +343,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
