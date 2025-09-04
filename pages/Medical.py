@@ -175,27 +175,28 @@ with tab1:
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        age = st.number_input("Age", 1, 120, 30)
-        gender = st.selectbox("Gender", ["Male", "Female"])
-        chest_pain = st.selectbox("Chest Pain", [0, 1])
-        high_blood_pressure = st.selectbox("High Blood Pressure", [0, 1])
-        irregular_heartbeat = st.selectbox("Irregular Heartbeat", [0, 1])
-        shortness_of_breath = st.selectbox("Shortness of Breath", [0, 1])
+        age = st.number_input("Age", 1, 120, 1)  # الافتراضي 1
+        gender = st.selectbox("Gender", ["Male", "Female"], index=0)  # Default Male
+        chest_pain = st.selectbox("Chest Pain", [0, 1], index=0)
+        high_blood_pressure = st.selectbox("High Blood Pressure", [0, 1], index=0)
+        irregular_heartbeat = st.selectbox("Irregular Heartbeat", [0, 1], index=0)
+        shortness_of_breath = st.selectbox("Shortness of Breath", [0, 1], index=0)
 
     with col2:
-        fatigue_weakness = st.selectbox("Fatigue / Weakness", [0, 1])
-        dizziness = st.selectbox("Dizziness", [0, 1])
-        swelling_edema = st.selectbox("Swelling / Edema", [0, 1])
-        neck_jaw_pain = st.selectbox("Neck / Jaw Pain", [0, 1])
-        excessive_sweating = st.selectbox("Excessive Sweating", [0, 1])
-        persistent_cough = st.selectbox("Persistent Cough", [0, 1])
-
+        fatigue_weakness = st.selectbox("Fatigue / Weakness", [0, 1], index=0)
+        dizziness = st.selectbox("Dizziness", [0, 1], index=0)
+        swelling_edema = st.selectbox("Swelling / Edema", [0, 1], index=0)
+        neck_jaw_pain = st.selectbox("Neck / Jaw Pain", [0, 1], index=0)
+        excessive_sweating = st.selectbox("Excessive Sweating", [0, 1], index=0)
+        persistent_cough = st.selectbox("Persistent Cough", [0, 1], index=0)
+    
     with col3:
-        nausea_vomiting = st.selectbox("Nausea / Vomiting", [0, 1])
-        chest_discomfort = st.selectbox("Chest Discomfort", [0, 1])
-        cold_hands_feet = st.selectbox("Cold Hands / Feet", [0, 1])
-        snoring_sleep_apnea = st.selectbox("Snoring / Sleep Apnea", [0, 1])
-        anxiety_doom = st.selectbox("Anxiety / Doom", [0, 1])
+        nausea_vomiting = st.selectbox("Nausea / Vomiting", [0, 1], index=0)
+        chest_discomfort = st.selectbox("Chest Discomfort", [0, 1], index=0)
+        cold_hands_feet = st.selectbox("Cold Hands / Feet", [0, 1], index=0)
+        snoring_sleep_apnea = st.selectbox("Snoring / Sleep Apnea", [0, 1], index=0)
+        anxiety_doom = st.selectbox("Anxiety / Doom", [0, 1], index=0)
+
 
     if st.button("Predict Stroke Risk", key="single"):
         input_df = pd.DataFrame([{
@@ -357,6 +358,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
