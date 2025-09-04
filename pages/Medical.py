@@ -128,8 +128,7 @@ le = liver_model["label_encoder"]
 ###########################################
 ###########################################
 # Model 3
-file_id = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
-url = f"https://drive.google.com/uc?id={file_id}"
+url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
 output = "mri_model.pth"
 gdown.download(url, output, quiet=False) 
 # Verify that the file exists
@@ -340,6 +339,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
