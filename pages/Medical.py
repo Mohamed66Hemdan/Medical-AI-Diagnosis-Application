@@ -131,23 +131,19 @@ le = liver_model["label_encoder"]
 
 url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
 output = "mri_model.pth"
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# تنزيل الملف إذا مش موجود
+# تحميل الملف لو مش موجود
 if not os.path.exists(output):
-    print("⬇️ Downloading MRI model...")
     gdown.download(url, output, quiet=False, fuzzy=True)
 
-# التأكد من وجود الملف
-if os.path.exists(output):
-    print("✅ File found:", output, "size:", os.path.getsize(output)/1e6, "MB")
-else:
-    raise FileNotFoundError("❌ Model file not found after download!")
+# التأكد من الحجم
+if not os.path.exists(output) or os.path.getsize(output) < 1e6:
+    raise FileNotFoundError("❌ Model file not downloaded correctly!")
 
-# تحميل الموديل
+device = torch.device("cpu")
 brain_model = torch.load(output, map_location=device, weights_only=False)
 brain_model.eval()
-print("✅ Brain model loaded and ready for inference!")
+print("✅ Model ready! Size:", os.path.getsize(output)/1e6, "MB")
 
 
 ###########################################
@@ -352,6 +348,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
