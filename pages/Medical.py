@@ -127,11 +127,9 @@ le = liver_model["label_encoder"]
 # Model 3
 FILE_ID = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
 url = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
-
 output_file = "mri_model.pth"
-response = requests.get(url)
-with open(output_file, "wb") as f:
-    f.write(response.content)
+gdown.download(url, output_file, quiet=False)
+
     
 brain_model  = torch.load(output_file, map_location=device, weights_only=False)
 
@@ -338,5 +336,6 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
