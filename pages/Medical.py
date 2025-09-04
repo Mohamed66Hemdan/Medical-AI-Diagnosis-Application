@@ -91,7 +91,7 @@ def set_bg_from_url(image_url):
         """,
         unsafe_allow_html=True
     )
-image_path = r"H:\Programming\AI\NTI Course\Final Project\Brain_Tumor\images\img4.png"
+image_path = "images/img4.png"
 
 set_bg_from_url(image_path)  
 ###########################################
@@ -321,3 +321,4 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
