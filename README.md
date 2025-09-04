@@ -48,7 +48,7 @@ Techniques applied:
 ### Performance:
 - Training Accuracy: 97%
 - Validation Accuracy: 96%
-- Classes: ['tumor', 'healthy']
+### Classes: ['tumor', 'healthy']
 
 Techniques applied:
 
@@ -58,7 +58,8 @@ Techniques applied:
 
 Training with PyTorch
 
-## Medical-AI-Diagnosis-HUB/
+## Project Structure
+### Medical-AI-Diagnosis-HUB/
 │
 
 ├── data/                  # Raw and processed datasets
