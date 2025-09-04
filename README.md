@@ -44,6 +44,7 @@ Techniques applied:
 
 - Detects tumor presence in brain scans (CT & MRI images).
 - Model architecture: Custom CNN built using PyTorch
+![Brain Tumor Sample](images/Picture1.png)
 
 ### Performance:
 - Training Accuracy: 97%
@@ -64,13 +65,11 @@ Training with PyTorch
 
 ├── data/                  # Raw and processed datasets
 
-├── models/                # Trained models (pickle / PyTorch)
+├── notebooks/             # EDA , preprocessing and model training notebooks
 
-├── notebooks/             # EDA and model training notebooks
+├── pages/                 # Streamlit web application Pages
 
-├── src/                   # Source code for preprocessing, training, utilities
-
-├── app.py                 # Streamlit web application
+├── Home.py                # Streamlit web application
 
 ├── requirements.txt       # Required Python packages
 
