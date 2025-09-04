@@ -51,7 +51,7 @@ def set_bg_from_url(image_url):
             box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
             cursor: pointer;
             transition: 0.3s;
-            margin-left: 40%;
+            margin-left: 20%;
 
         }}
         .stButton > button:hover {{
@@ -73,7 +73,6 @@ st.markdown("<h1 style='text-align: center; color: white; font-size: 70px;'>Medi
 # st.markdown("<h3 style='text-align: center; color: white; font-size: 30px;'>Stroke Risk Prediction <br> Liver Cirrhosis Stage Classification <br> Brain Tumor Classification</h3>", unsafe_allow_html=True)
 
 st.markdown("<div class='main-button';  style='text-align: center;' >", unsafe_allow_html=True)
-# زر الاستمرار
 if st.button("Start Diagnosis 🧬"):
     st.switch_page("pages\Medical.py")
 st.markdown("</div>", unsafe_allow_html=True)
