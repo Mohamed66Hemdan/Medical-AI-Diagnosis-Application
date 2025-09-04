@@ -129,18 +129,11 @@ le = liver_model["label_encoder"]
 ###########################################
 # Model 3
 url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
-model_path = "mri_model.pth"
-device = torch.device("cpu")
+output = "mri_model.pth"
+gdown.download(url, output, quiet=False)
 
-def load_brain_model():
-    if not os.path.exists(model_path):
-        gdown.download(url, model_path, quiet=False)
-
-    return torch.load(model_path, map_location=device, weights_only=False)
-
-brain_model = load_brain_model()
+brain_model = torch.load(output, map_location=device,weights_only=False)
 brain_model.eval()
-
 ###########################################
 ###########################################
 
@@ -343,6 +336,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
