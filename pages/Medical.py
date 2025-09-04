@@ -128,34 +128,16 @@ le = liver_model["label_encoder"]
 ###########################################
 # Model 3
 url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
-zip_path = "mri_model.zip"
-model_path = "mri_model.pth"
-
-device = torch.device("cpu")
+zip_path, model_path = "mri_model.zip", "mri_model.pth"
 
 def load_brain_model():
-    #
-    if not os.path.exists(zip_path):
-        print("📥 Downloading model zip file...")
-        gdown.download(url, zip_path, quiet=False)
-    else:
-        print("✅ Found existing zip file:", zip_path)
-
-    #
-    if not os.path.exists(model_path):  # لو الموديل مش مفكوك
-        with zipfile.ZipFile(zip_path, "r") as zip_ref:
-            zip_ref.extractall(".")
-        print("📂 Extracted files:", os.listdir("."))
-    #
     if not os.path.exists(model_path):
-        raise FileNotFoundError(f"❌ Expected model file {model_path} not found after extraction!")
+        if not os.path.exists(zip_path):
+            gdown.download(url, zip_path, quiet=False)
+        with zipfile.ZipFile(zip_path, "r") as z:
+            z.extractall(".")
+    return torch.load(model_path, map_location=device, weights_only=False)
 
-    #
-    brain_model = torch.load(model_path, map_location=device, weights_only=False)
-    return brain_model
-
-
-# استدعاء
 brain_model = load_brain_model()
 brain_model.eval()
 
@@ -361,6 +343,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
