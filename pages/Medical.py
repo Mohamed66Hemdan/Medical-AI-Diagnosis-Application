@@ -128,16 +128,18 @@ le = liver_model["label_encoder"]
 ###########################################
 # Model 3
 url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
-zip_path, model_path = "mri_model.zip", "mri_model.pth"
+model_path = "mri_model.pth"
+device = torch.device("cpu")
 
 def load_brain_model():
+    # لو الملف مش موجود نزّله
     if not os.path.exists(model_path):
-        if not os.path.exists(zip_path):
-            gdown.download(url, zip_path, quiet=False)
-        with zipfile.ZipFile(zip_path, "r") as z:
-            z.extractall(".")
+        gdown.download(url, model_path, quiet=False)
+
+    # تحميل الموديل
     return torch.load(model_path, map_location=device, weights_only=False)
 
+# استدعاء
 brain_model = load_brain_model()
 brain_model.eval()
 
@@ -343,6 +345,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
