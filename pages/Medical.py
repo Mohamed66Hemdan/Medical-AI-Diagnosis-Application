@@ -127,7 +127,6 @@ le = liver_model["label_encoder"]
 ###########################################
 ###########################################
 # Model 3
-
 FILE_ID = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
 url = f"https://drive.google.com/uc?id={FILE_ID}"
 zip_path = "mri_model.zip"   
@@ -136,17 +135,15 @@ def load_brain_model():
     with zipfile.ZipFile(zip_path, "r") as zip_ref:
         zip_ref.extractall(".")
     files = os.listdir(".")
-
     real_model_path = None
     for f in files:
         if f.endswith(".pth"):
             real_model_path = f
             break
-
     brain_model = torch.load(real_model_path, map_location=device, weights_only=False)
-
     return brain_model
-
+    
+brain_model = load_brain_model()
 brain_model.eval()
 ###########################################
 ###########################################
@@ -350,6 +347,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
