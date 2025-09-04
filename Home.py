@@ -74,5 +74,5 @@ st.markdown("<h1 style='text-align: center; color: white; font-size: 70px;'>Medi
 
 st.markdown("<div class='main-button';  style='text-align: center;' >", unsafe_allow_html=True)
 if st.button("Start Diagnosis 🧬"):
-    st.switch_page("pages/Medical.py")
+    st.switch_page("Medical")
 st.markdown("</div>", unsafe_allow_html=True)
