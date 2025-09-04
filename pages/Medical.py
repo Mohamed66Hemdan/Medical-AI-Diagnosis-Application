@@ -129,7 +129,7 @@ le = liver_model["label_encoder"]
 ###########################################
 # Model 3
 
-url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
+url = "https://drive.google.com/file/d/1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF/view?usp=drive_link"
 output = "mri_model.pth"
 gdown.download(url, output, quiet=False, fuzzy=True)
 
@@ -339,6 +339,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
