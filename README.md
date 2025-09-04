@@ -60,10 +60,17 @@ Training with PyTorch
 
 ## Medical-AI-Diagnosis-HUB/
 │
+
 ├── data/                  # Raw and processed datasets
+
 ├── models/                # Trained models (pickle / PyTorch)
+
 ├── notebooks/             # EDA and model training notebooks
+
 ├── src/                   # Source code for preprocessing, training, utilities
+
 ├── app.py                 # Streamlit web application
+
 ├── requirements.txt       # Required Python packages
+
 └── README.md              # Project documentation
