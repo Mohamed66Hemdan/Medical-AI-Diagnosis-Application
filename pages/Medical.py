@@ -130,18 +130,21 @@ le = liver_model["label_encoder"]
 # Model 3
 
 # معرف الملف من الرابط
-url = "https://drive.google.com/uc?id=1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
+url = "https://github.com/username/repo_name/releases/download/v1.0/mri_model.pth"
 output = "mri_model.pth"
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# تحميل الملف
-gdown.download(url, output, quiet=False)
+# تحميل الملف من GitHub Release
+response = requests.get(url)
+with open(output, "wb") as f:
+    f.write(response.content)
 
 # التأكد من وجود الملف
 if not os.path.exists(output):
     raise FileNotFoundError(f"تحميل الملف فشل: {output} غير موجود.")
 
 # تحميل الموديل
-brain_model = torch.load(output, map_location=device, weights_only=False)
+brain_model = torch.load(output, map_location=device)
 brain_model.eval()
 
 ###########################################
@@ -346,6 +349,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
