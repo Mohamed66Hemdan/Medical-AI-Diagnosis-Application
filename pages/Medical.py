@@ -132,18 +132,10 @@ le = liver_model["label_encoder"]
 # معرف الملف من الرابط
 url = "https://github.com/Mohamed66Hemdan/Medical-AI-Diagnosis-Application/releases/download/v1.0/mri_model.pth"
 output = "mri_model.pth"
-device = "cuda" if torch.cuda.is_available() else "cpu"
-
-# تحميل الملف بأمان
-with requests.get(url, stream=True) as r:
-    r.raise_for_status()
-    with open(output, "wb") as f:
-        for chunk in r.iter_content(chunk_size=8192):
-            f.write(chunk)
-
-# التأكد من وجود الملف
-if not os.path.exists(output):
-    raise FileNotFoundError(f"تحميل الملف فشل: {output} غير موجود.")
+response = requests.get(url)
+with open(output, "wb") as f:
+    f.write(response.content)
+torch.serialization.add_safe_globals([torch.nn.Sequential])
 # تحميل الموديل
 brain_model = torch.load(output, map_location=device)
 brain_model.eval()
@@ -350,6 +342,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
