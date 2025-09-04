@@ -125,6 +125,8 @@ binary_transformer = FunctionTransformer(binary_transform)
 liver_model = joblib.load("xgb_pipeline_with_le.pkl")
 pipeline = liver_model["pipeline"]
 le = liver_model["label_encoder"]
+from sklearn.utils.validation import check_is_fitted
+check_is_fitted(pipeline)
 
 ###########################################
 ###########################################
@@ -349,6 +351,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
