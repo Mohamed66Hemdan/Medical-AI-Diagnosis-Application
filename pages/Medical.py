@@ -122,17 +122,10 @@ def binary_transform(X):
     })
 binary_transformer = FunctionTransformer(binary_transform)
 ###########################################
-# liver_model = joblib.load("xgb_pipeline_with_le.pkl")
-# pipeline = liver_model["pipeline"]
-# le = liver_model["label_encoder"]
-@st.cache_resource
-def load_model(path="xgb_pipeline_with_le.pkl"):
-    liver_model = joblib.load(path)
-    pipeline = liver_model["pipeline"]
-    le = liver_model["label_encoder"]
-    return pipeline, le
+liver_model = joblib.load("xgb_pipeline_with_le.pkl")
+pipeline = liver_model["pipeline"]
+le = liver_model["label_encoder"]
 
-pipeline, le = load_model()
 ###########################################
 ###########################################
 # Model 3
@@ -356,6 +349,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
