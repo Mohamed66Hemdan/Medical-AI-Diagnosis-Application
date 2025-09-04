@@ -235,29 +235,28 @@ with tab2:
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        age = st.number_input("Age (days)", 0, 40000, 20075)
-        sex = st.selectbox("Sex", ["M", "F"])
-        ascites = st.selectbox("Ascites", ["Y", "N"])
-        hepatomegaly = st.selectbox("Hepatomegaly", ["Y", "N"])
-        spiders = st.selectbox("Spiders", ["Y", "N"])
-        n_days = st.number_input("N_Days", 0, 5000, 0)
-
+        age = st.number_input("Age (days)", 0, 40000, 0)  # default 0
+        sex = st.selectbox("Sex", ["M", "F"], index=0)  # default "M"
+        ascites = st.selectbox("Ascites", ["Y", "N"], index=0)  # default "Y"
+        hepatomegaly = st.selectbox("Hepatomegaly", ["Y", "N"], index=0)  # default "Y"
+        spiders = st.selectbox("Spiders", ["Y", "N"], index=0)  # default "Y"
+        n_days = st.number_input("N_Days", 0, 5000, 0)  # default 0
 
     with col2:
-        drug = st.selectbox("Drug", ["D-penicillamine", "Placebo"])
-        status = st.selectbox("Status", ["C", "CL", "D"])
-        edema = st.selectbox("Edema", ["Y", "N"])
-        albumin = st.number_input("Albumin", 0.0, 6.0, 3.2)
-        bilirubin = st.number_input("Bilirubin", 0.0, 50.0, 1.8)
-        tryglicerides = st.number_input("Triglycerides", 0, 1000, 140)
-
+        drug = st.selectbox("Drug", ["D-penicillamine", "Placebo"], index=0)  # default first
+        status = st.selectbox("Status", ["C", "CL", "D"], index=0)  # default "C"
+        edema = st.selectbox("Edema", ["Y", "N"], index=0)  # default "Y"
+        albumin = st.number_input("Albumin", 0.0, 6.0, 0.0)  # default 0.0
+        bilirubin = st.number_input("Bilirubin", 0.0, 50.0, 0.0)  # default 0.0
+        tryglicerides = st.number_input("Triglycerides", 0, 1000, 0)  # default 0
+    
     with col3:
-        platelets = st.number_input("Platelets", 0, 1000, 220)
-        prothrombin = st.number_input("Prothrombin", 0.0, 30.0, 10.5)
-        cholesterol = st.number_input("Cholesterol", 0.0, 1000.0, 320.0)
-        copper = st.number_input("Copper", 0.0, 500.0, 50.0)
-        alk_phos = st.number_input("Alk Phos", 0.0, 2000.0, 1200.0)
-        sgot = st.number_input("SGOT", 0, 500, 95)
+        platelets = st.number_input("Platelets", 0, 1000, 0)  # default 0
+        prothrombin = st.number_input("Prothrombin", 0.0, 30.0, 0.0)  # default 0.0
+        cholesterol = st.number_input("Cholesterol", 0.0, 1000.0, 0.0)  # default 0.0
+        copper = st.number_input("Copper", 0.0, 500.0, 0.0)  # default 0.0
+        alk_phos = st.number_input("Alk Phos", 0.0, 2000.0, 0.0)  # default 0.0
+        sgot = st.number_input("SGOT", 0, 500, 0)  # default 0
 
     if st.button("Predict Cirrhosis Stage"):
         new_patient = pd.DataFrame([{
@@ -358,6 +357,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
