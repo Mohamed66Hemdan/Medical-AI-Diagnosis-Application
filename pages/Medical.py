@@ -135,8 +135,15 @@ output = "mri_model.pth"
 response = requests.get(url)
 with open(output, "wb") as f:
     f.write(response.content)
-torch.serialization.add_safe_globals([torch.nn.Sequential])
-# تحميل الموديل
+torch.serialization.add_safe_globals([
+    torch.nn.Sequential,
+    torch.nn.Conv2d,
+    torch.nn.ReLU,
+    torch.nn.MaxPool2d,
+    torch.nn.Flatten,
+    torch.nn.Linear,
+    torch.nn.Dropout
+])
 brain_model = torch.load(output, map_location=device)
 brain_model.eval()
 
@@ -342,6 +349,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
