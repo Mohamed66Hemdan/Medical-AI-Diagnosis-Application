@@ -129,7 +129,6 @@ le = liver_model["label_encoder"]
 ###########################################
 # Model 3
 
-# معرف الملف من الرابط
 url = "https://github.com/Mohamed66Hemdan/Medical-AI-Diagnosis-Application/releases/download/v1.0/mri_model.pth"
 output = "mri_model.pth"
 response = requests.get(url)
@@ -349,6 +348,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
