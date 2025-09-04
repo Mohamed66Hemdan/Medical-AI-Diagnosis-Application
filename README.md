@@ -39,3 +39,31 @@ Techniques applied:
 - Exploratory Data Analysis (EDA)
 - Grid Search hyperparameter tuning
 - K-Fold Cross Validation for robust evaluation
+  
+## 3. Brain Tumor Detection
+
+- Detects tumor presence in brain scans (CT & MRI images).
+- Model architecture: Custom CNN built using PyTorch
+
+### Performance:
+- Training Accuracy: 97%
+- Validation Accuracy: 96%
+- Classes: ['tumor', 'healthy']
+
+Techniques applied:
+
+- Image preprocessing (resizing, normalization)
+- Data augmentation
+- CNN-based feature extraction
+
+Training with PyTorch
+
+## Medical-AI-Diagnosis-HUB/
+│
+├── data/                  # Raw and processed datasets
+├── models/                # Trained models (pickle / PyTorch)
+├── notebooks/             # EDA and model training notebooks
+├── src/                   # Source code for preprocessing, training, utilities
+├── app.py                 # Streamlit web application
+├── requirements.txt       # Required Python packages
+└── README.md              # Project documentation
