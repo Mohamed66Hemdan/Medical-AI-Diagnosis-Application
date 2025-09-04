@@ -280,8 +280,10 @@ with tab2:
             "N_Days": n_days
         }])
 
+        new_patient_transformed = binary_transform(new_patient)
+
         # Prediction
-        pred_enc = pipeline.predict(new_patient)
+        pred_enc = pipeline.predict(new_patient_transformed)
         pred_label = le.inverse_transform(pred_enc)
 
         st.success(f"✅ Predicted Stage: **{pred_label[0]}**")
@@ -356,6 +358,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
