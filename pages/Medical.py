@@ -1,16 +1,24 @@
 # =========================================
+# Gihub request from drive
+import requests
+# =========================================
 # Library 
 # =========================================
 import streamlit as st
+# =========================================
+# Pytorch 
 import torch
 import torchvision.transforms as transforms
+# =========================================
+# Sklearn 
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn import set_config
 import pandas as pd
 import sklearn.utils
-
+# =========================================
+# Image
 from PIL import Image
 # =========================================
 # =========================================
@@ -117,14 +125,23 @@ le = liver_model["label_encoder"]
 ###########################################
 ###########################################
 # Model 3
-brain_model  = torch.load("mri_model.pth", map_location=device, weights_only=False)
+FILE_ID = "1E41LNAcccg1CwCvkWCyZ_MtCGc3HBeEF"
+url = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
+
+output_file = "mri_model.pth"
+response = requests.get(url)
+with open(output_file, "wb") as f:
+    f.write(response.content)
+    
+brain_model  = torch.load(output_file, map_location=device, weights_only=False)
 
 brain_model.eval()
+###########################################
+###########################################
 
 stroke_classes = ["Low Risk", "High Risk"]
 liver_classes  = ["Stage 1", "Stage 2", "Stage 3"]
 brain_classes  = ["Healthy", "Tumor"]
-
 # -----------------------------
 # Streamlit UI
 # -----------------------------
@@ -321,4 +338,5 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
