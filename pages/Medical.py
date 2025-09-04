@@ -145,7 +145,7 @@ def load_brain_model():
 
     brain_model = torch.load(real_model_path, map_location=device, weights_only=False)
 
-    return model
+    return brain_model
 
 brain_model.eval()
 ###########################################
@@ -350,6 +350,7 @@ with tab3:
                 unsafe_allow_html=True
             )
 # 
+
 
 
 
