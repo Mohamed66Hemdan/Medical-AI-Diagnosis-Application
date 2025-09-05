@@ -78,3 +78,7 @@ Training with PyTorch
 ├── requirements.txt       # Required Python packages
 
 └── README.md              # Project documentation
+
+Explore the project and try the live demo here:
+
+🔗 Live Demo: https://lnkd.in/dntRVGGr
