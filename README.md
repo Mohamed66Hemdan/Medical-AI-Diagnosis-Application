@@ -81,4 +81,4 @@ Training with PyTorch
 
 Explore the project and try the live demo here:
 
-🔗 Live Demo: https://lnkd.in/dntRVGGr
+🔗 Live Demo: [https://lnkd.in/dntRVGGr](https://medical-ai-diagnosis-applicationgit-odjeg6n3vqdmubbhfuswbs.streamlit.app/)
